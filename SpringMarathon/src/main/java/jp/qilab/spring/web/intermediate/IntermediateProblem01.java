@@ -36,6 +36,13 @@ public class IntermediateProblem01 {
 	
 	@RequestMapping("/intermediate/problem01/result/{id}")
 	public ModelAndView result(@Valid Problem01Form problem01Form, BindingResult bindingResult) {
+		// エラー時は、indexページにリダイレクト
+		if (bindingResult.hasErrors()) {
+			ModelAndView modelAndView = index(problem01Form);
+			modelAndView.setViewName("redirect:" + "/intermediate/problem01/");
+			return modelAndView;
+		}
+		
 		ModelAndView modelAndView = new ModelAndView("intermediate/problem01/result");
 		
 		BaseballTeam baseballTeam = baseballTeamsRepository.findOne(problem01Form.getId());

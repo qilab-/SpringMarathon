@@ -16,3 +16,31 @@ VALUES
 (2, '渋谷エクセルホテル東急', '渋谷駅', 10000),
 (3, 'ホテルローズガーデン新宿', '桜木町駅', 5000),
 (4, 'International Hotel', '新宿駅', 20000);
+
+INSERT INTO sex
+(id, name)
+VALUES
+(1, '男'),
+(2, '女');
+
+INSERT INTO clothes_color
+(id, name)
+VALUES
+(1, '赤'),
+(2, '青'),
+(3, '黄'),
+(4, '白');
+
+INSERT INTO clothes
+(id, name, sex_id, clothes_color_id, price)
+VALUES
+(1, 'Tシャツ(mens, red)', 1, 1, 1000),
+(2, 'Tシャツ(mens, blue)', 1, 2, 1100),
+(3, 'Tシャツ(mens, yellow)', 1, 3, 1200),
+(4, 'Tシャツ(mens, white)', 1, 4, 1300),
+(5, 'Tシャツ(ladies, red)', 2, 1, 1400),
+(6, 'Tシャツ(ladies, blue)', 2, 2, 1500),
+(7, 'Tシャツ(ladies, yellow)', 2, 3, 1600),
+(8, 'Tシャツ(ladies, white)', 2, 4, 1700),
+(9, 'Tシャツ2(mens, red)', 1, 1, 1800);
+

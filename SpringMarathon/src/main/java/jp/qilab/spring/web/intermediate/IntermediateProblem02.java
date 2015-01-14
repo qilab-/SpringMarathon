@@ -10,6 +10,7 @@ import jp.qilab.spring.repository.intermediate.HotelsRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -20,13 +21,19 @@ public class IntermediateProblem02 {
 	HotelsRepository hotelsRepository;
 	
 	@RequestMapping("/intermediate/problem02/")
-	public ModelAndView index(@Valid Problem02Form problem02Form) {
+	public ModelAndView index(
+			@Valid Problem02Form problem02Form, BindingResult bindingResult) {
 		ModelAndView modelAndView = new ModelAndView("intermediate/problem02/index");
-		if (problem02Form.getUpperPrice() == null) {
+		
+		if (bindingResult.hasErrors()) {
 			return modelAndView;
 		}
 		
-		List<Hotel> hotelList = hotelsRepository.findByPriceLessThanEqual(problem02Form.getUpperPrice());
+		List<Hotel> hotelList = null;
+		if (problem02Form.getUpperPrice() != null) {
+			hotelList = hotelsRepository.findByPriceLessThanEqual(problem02Form.getUpperPrice());
+		}
+		
 		modelAndView.addObject("hotelList", hotelList);
 		
 		return modelAndView;
