@@ -38,9 +38,7 @@ public class IntermediateProblem01 {
 	public ModelAndView result(@Valid Problem01Form problem01Form, BindingResult bindingResult) {
 		// エラー時は、indexページにリダイレクト
 		if (bindingResult.hasErrors()) {
-			ModelAndView modelAndView = index(problem01Form);
-			modelAndView.setViewName("redirect:" + "/intermediate/problem01/");
-			return modelAndView;
+			return new ModelAndView("redirect:" + "/intermediate/problem01/");
 		}
 		
 		ModelAndView modelAndView = new ModelAndView("intermediate/problem01/result");

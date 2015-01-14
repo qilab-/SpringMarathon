@@ -1,16 +1,18 @@
 package jp.qilab.spring.domain.intermediate;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+
+import org.seasar.doma.Entity;
+import org.seasar.doma.GeneratedValue;
+import org.seasar.doma.GenerationType;
+import org.seasar.doma.Id;
+import org.seasar.doma.Table;
 
 @Entity
 @Table(name = "clothes_color")
 public class ClothesColor {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
 	private String name;

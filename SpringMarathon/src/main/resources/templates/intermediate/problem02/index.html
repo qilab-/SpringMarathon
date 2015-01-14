@@ -25,7 +25,7 @@
 			<p>一泊料金 <input type="text" th:field="*{upperPrice}"/> 円以下</p>
 			<input type="submit" value="検索"/>
 		</form>
-		<table th:if="${hotelList != null}" th:each="hotel : ${hotelList}" th:object="${hotel}">
+		<table class="item" th:if="${hotelList != null}" th:each="hotel : ${hotelList}" th:object="${hotel}">
 			<tr>
 				<th>ホテル名</th>
 				<td th:text="*{name}"></td>
